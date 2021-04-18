@@ -133,14 +133,26 @@ int main(int argc, char** argv)
    {
       1.0, -1.0, 0.5,
      -1.0, -1.0, 0.5,
-      0.0, 1.0,  0.5
+      0.0, 1.0,  0.5,
+      -1.0, -1.0, 0.5,
+      0.0, -1.0, -0.5,
+      0.0, 1.0, 0.5,
+      0.0,-1.0,-0.5,
+      1.0, -1.0, 0.5,
+      0.0, 1.0, 0.5
    };
 
    const float normals[] =
    {
       0.0f, 0.0f, 1.0f,
       0.0f, 0.0f, 1.0f,
-      0.0f, 0.0f, 1.0f
+      0.0f, 0.0f, 1.0f,
+      0.67f, -0.33f, 0.67f,
+      0.67f, -0.33f, 0.67f,
+      0.67f, -0.33f, 0.67f,
+      -0.67f, -0.33f, 0.67f,
+      -0.67f, -0.33f, 0.67f,
+      -0.67f, -0.33f, 0.67f
    };
 
    const unsigned int indices[] =
@@ -215,10 +227,20 @@ int main(int argc, char** argv)
 
    glUseProgram(shaderId);
 
+   GLuint matrixParam = glGetUniformLocation(shaderId, "mvp");
+   glm::mat4 transform(1.0);
+   glm::mat4 projection = glm::perspective(glm::radians(60.0f), 1.0f, 0.1f, 10.0f);
+   glm::mat4 camera = glm::lookAt(glm::vec3(0,0,5), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
+
    // Loop until the user closes the window 
    while (!glfwWindowShouldClose(window))
    {
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear the buffers
+
+      float dx = 0.1 * sin(glfwGetTime());
+      transform = glm::translate(glm::mat4(1.0), glm::vec3(dx, 0, 0));
+      glm::mat4 mvp = projection * camera * transform;
+      glUniformMatrix4fv(matrixParam, 1, GL_FALSE, &mvp[0][0]);
 
       // Draw primitive
       glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementbuffer);
