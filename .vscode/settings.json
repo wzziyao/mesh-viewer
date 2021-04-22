@@ -1,3 +1,9 @@
 {
-    "cmake.configureOnOpen": true
+    "cmake.configureOnOpen": true,
+    "files.associations": {
+        "new": "cpp",
+        "iosfwd": "cpp",
+        "iostream": "cpp",
+        "algorithm": "cpp"
+    }
 }

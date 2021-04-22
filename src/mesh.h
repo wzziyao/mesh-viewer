@@ -7,6 +7,15 @@
 namespace agl {
    class Mesh
    {
+   private:
+      int num_vertices;
+      int num_polygons;
+      glm::vec3 min_bounds;
+      glm::vec3 max_bounds;
+      float *vertex;
+      float *normal;
+      unsigned int *index;
+
    public:
 
       Mesh();
