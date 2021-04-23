@@ -39,5 +39,30 @@ To run each program from build, you would type
 mesh-viewer/build $ ../bin/mesh-viewer
 ```
 
-# TODO: Screenshots and writeup
+**A Simple Mesh Viewer**
 
+Dragging with the left mouse button down to rotate the camera around the origin.
+
+SHIFT+Drag with the left mouse button down should move the camera towards and away from the origin.
+
+<img src="images/viewer1.png" alt="unique" width="500"/>
+
+<img src="images/viewer2.png" alt="unique" width="500"/>
+
+<img src="images/viewer3.png" alt="unique" width="500"/>
+
+<img src="images/viewer4.png" alt="unique" width="500"/>
+
+<img src="images/viewer5.png" alt="unique" width="500"/>
+
+**Phong Shader**
+
+<img src="images/mug_phong.png" alt="unique" width="500"/>
+
+<img src="images/dolphin_phong.png" alt="unique" width="500"/>
+
+**Toon Shader**
+
+<img src="images/mug_toon.png" alt="unique" width="500"/>
+
+<img src="images/dolphin_toon.png" alt="unique" width="500"/>
